@@ -5,6 +5,11 @@ then
    exit 0 
 fi
 
+if [[ ! -d /etc/ngx-openresty/conf.d ]]
+then
+    mkdir  -p /etc/ngx-openresty/conf.d
+fi
+
 if [[ ! -f /etc/ngx-openresty/conf.d/default.conf ]]
 then
     cp ./nginx/sites/default.conf /etc/ngx-openresty/conf.d/default.conf
@@ -39,11 +44,6 @@ fi
 if [[ ! -d /etc/cert/ ]]
 then
     mkdir  -p /etc/cert/
-fi
-
-if [[ ! -d /etc/ngx-openresty ]]
-then
-    mkdir  -p /etc/ngx-openresty
 fi
 
 if [[ ! -d /var/log/nginx/ ]]
