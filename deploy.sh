@@ -15,6 +15,16 @@ then
     cp ./nginx/sites/default.conf /etc/ngx-openresty/conf.d/default.conf
 fi
 
+if [[ ! -d /etc/ngx-openresty/include ]]
+then
+    mkdir  -p /etc/ngx-openresty/include
+fi
+
+if [[ ! -f /etc/ngx-openresty/nginx.conf ]]
+then
+    cp ./nginx/nginx.conf.example /etc/ngx-openresty/nginx.conf
+fi
+
 if [[ ! -f /usr/local/sbin/nginx ]]
 then
     cp ./nginx/nginx /usr/local/sbin/nginx
